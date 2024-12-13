@@ -2,6 +2,7 @@ import RestoCards from "./RestoCards";
 import resList from "../Utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
+import { Link } from "react-router-dom";
 
 
 const Body = () => {
@@ -25,10 +26,7 @@ const Body = () => {
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
-    //conditional rendering
-    // if (listOfRestaurants.length === 0) {
-    //     return <Shimmer />
-    // }
+
     // Ternary operator
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
@@ -50,16 +48,16 @@ const Body = () => {
                 <button className="filter-btn" onClick={
                     () => {
                         const filteredList = listOfRestaurants.filter(
-                            (res) => (res.info.avgRating > 4.3)
+                            (res) => (res.info.avgRating > 4.2)
                         )
-                        setListOfRestaurants(filteredList)
+                        setFilteredRestaurants(filteredList)
                     }
                 }>
                     Top Rated Restaurants</button>
             </div>
             <div className="Res-container">
                 {filteredRestaurants.map((restaurant) => (
-                    <RestoCards key={restaurant.info.id} resData={restaurant} />))
+                    <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><RestoCards resData={restaurant} /></Link>))
                 }
             </div>
         </div>
