@@ -3,12 +3,14 @@ import resList from "../Utils/mockData";
 import { useEffect, useState } from "react";
 import Shimmer from "./shimmer";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../Utils/useOnlineStatus";
+import useListOfRestaurants from "../Utils/useListOfRestaurants";
 
 
 const Body = () => {
-    //local state variable
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
-    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const [filteredRestaurants, setFilteredRestaurants] = useState();
+
     const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
@@ -25,6 +27,11 @@ const Body = () => {
         //optional chaining
         setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setFilteredRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+    }
+    //checking online status
+    const onlineStatus = useOnlineStatus();
+    if (onlineStatus === false) {
+        return (<h1>Please Check Your Internet Connection!</h1>)
     }
 
     // Ternary operator
