@@ -10,7 +10,6 @@ import useListOfRestaurants from "../Utils/useListOfRestaurants";
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState();
-
     const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
@@ -37,32 +36,32 @@ const Body = () => {
     // Ternary operator
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className="body">
-            <div className="filter">
-                <div className="search-bar">
+            <div className="filter p-4 m-4 flex">
+                <div className="search-bar px-5">
                     <input type="text"
-                        className="search-box"
+                        className="w-80 h-9 border border-current rounded"
                         value={searchText}
                         onChange={(e) => { setSearchText(e.target.value) }} />
-                    <button type="button"
+                    <button type="button" className="p-2 m-3 bg-green-100 rounded-sm"
                         onClick={() => {
                             const filteredlist = listOfRestaurants.filter(
                                 (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                             setFilteredRestaurants(filteredlist);
                             console.log(searchText)
-                        }}>Search</button>
-
+                        }}>Search
+                    </button>
                 </div>
-                <button className="filter-btn" onClick={
+                <button className="p-2 m-3 bg-green-100 rounded-sm" onClick={
                     () => {
                         const filteredList = listOfRestaurants.filter(
                             (res) => (res.info.avgRating > 4.2)
                         )
                         setFilteredRestaurants(filteredList)
                     }
-                }>
-                    Top Rated Restaurants</button>
+                }>Top Rated Restaurants
+                </button>
             </div>
-            <div className="Res-container">
+            <div className="flex flex-wrap">
                 {filteredRestaurants.map((restaurant) => (
                     <Link key={restaurant.info.id} to={"/restaurant/" + restaurant.info.id}><RestoCards resData={restaurant} /></Link>))
                 }

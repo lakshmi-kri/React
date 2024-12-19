@@ -13,19 +13,19 @@ const Header = () => {
         console.log("useEffect is called")
     }, [btnName]);
     return (
-        <div className="header">
+        <div className="flex justify-between bg-green-100">
             <div className="logo-container">
-                <img className="logo" src={LOGO} />
+                <img className="w-24" src={LOGO} />
             </div>
-            <div className="navItems">
-                <ul>
-                    <li>OnlineStatus:{onlineStatus ? "✅" : "🔴"}</li>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">About Us</Link></li>
-                    <li><Link to="/contact">Contact Us</Link></li>
-                    <li><Link to="/grocery">Grocery Shopping</Link></li>
-                    <li>Cart</li>
-                    <button className="login-button" onClick={() => {
+            <div className="flex items-center">
+                <ul className="flex px-5">
+                    <li className="px-3">OnlineStatus:{onlineStatus ? "✅" : "🔴"}</li>
+                    <li className="px-3"><Link to="/">Home</Link></li>
+                    <li className="px-3"><Link to="/about">About Us</Link></li>
+                    <li className="px-3"><Link to="/contact">Contact Us</Link></li>
+                    <li className="px-3"><Link to="/grocery">Grocery Shopping</Link></li>
+                    <li className="px-3">Cart</li>
+                    <button className="px-3 text-lg " onClick={() => {
                         btnName == "Login" ? setBtnName("LogOut") : setBtnName("Login")
                     }}>{btnName}</button>
                 </ul>

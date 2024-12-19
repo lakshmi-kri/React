@@ -5,11 +5,11 @@ const User = (props) => {
     const [count, SetCount] = useState(0);
     const [userInfo, SetUserInfo] = useState([]);
 
-    //const { name } = props;
+    const { name } = props;
 
-    // useEffect(() => {
-    //     fetchUserApi();
-    // }, []);
+    useEffect(() => {
+        fetchUserApi();
+    }, []);
 
     const fetchUserApi = async () => {
         const data = await fetch("https://api.github.com/users/lakshmi-kri");
@@ -19,7 +19,7 @@ const User = (props) => {
     }
 
     return (
-        <div className="userCard">
+        <div className=" ">
             <h5>Using Functional Component</h5>
             {/* <div className="count">
                 <h2>Count:{count}</h2>
@@ -27,7 +27,7 @@ const User = (props) => {
                     SetCount(count + 1)
                 }}>Increase Count</button>
             </div> */}
-            <img className="userImage" src={userInfo.avatar_url} />
+            <img className="w-56" src={userInfo.avatar_url} />
             <h2>Name: {userInfo.name}</h2>
             <h3>Place: {userInfo.location}</h3>
             <h3>Bio: {userInfo.bio}</h3>

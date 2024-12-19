@@ -33,7 +33,7 @@ class UserClass extends React.Component {
         const { name, location } = this.props;
         const { count } = this.state;
         return (
-            <div className="userCard">
+            <div className="">
                 <h5>Using Class Based Component</h5>
                 {/* <div className="count">
                     <h2>Count:{count}</h2>
@@ -43,7 +43,7 @@ class UserClass extends React.Component {
                         })
                     }}>Increase Count</button>
                 </div> */}
-                <img className="userImage" src={this.state.userInfo.avatar_url} />
+                <img className="w-56" src={this.state.userInfo.avatar_url} />
                 <h2>Name: {this.state.userInfo.name}</h2>
                 <h3>Place: {this.state.userInfo.location}</h3>
                 <h3>Bio: {this.state.userInfo.bio}</h3>

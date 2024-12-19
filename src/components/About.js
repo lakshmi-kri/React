@@ -6,8 +6,11 @@ const About = () => {
         <div>
             <h1>About</h1>
             <h2>This is ECO Food App</h2>
-            <User name={"Lakshmi Siddhachar(func)"} />
-            <UserClass name={"Lakshmi Siddhachar(class)"} location={"Belgium(class)"} />
+            <div className="flex flex-wrap justify-around">
+                <User name={"Lakshmi Siddhachar(func)"} />
+                <UserClass name={"Lakshmi Siddhachar(class)"} location={"Belgium(class)"} />
+            </div>
+
         </div>
 
     )
