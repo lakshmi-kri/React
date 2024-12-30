@@ -13,7 +13,7 @@ const Header = () => {
         console.log("useEffect is called")
     }, [btnName]);
     return (
-        <div className="flex justify-between bg-green-100">
+        <div className="flex justify-between bg-[#f0f0f0]">
             <div className="logo-container">
                 <img className="w-24" src={LOGO} />
             </div>

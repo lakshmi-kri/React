@@ -3,8 +3,6 @@ import { LIST_OF_RESTAURANT_URL } from "./Constants";
 
 const useListOfRestaurants = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
-
-
     useEffect(() => {
         fetchData();
     }, []);
