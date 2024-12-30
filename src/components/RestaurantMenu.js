@@ -37,7 +37,7 @@ const RestaurantMenu = () => {
                     key={category?.card?.card?.title}
                     data={category?.card?.card}
                     showItem={index === showIndex && true}
-                    setShowIndex={() => { setShowIndex(index) }} /> //passing State Variable to Controlled Component
+                    setShowIndex={() => { setShowIndex(prevIndex => (prevIndex === index ? null : index)) }} /> //passing State Variable to Controlled Component
             )}
         </div>
 

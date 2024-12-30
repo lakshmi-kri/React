@@ -4,7 +4,7 @@ import ItemList from "./ItemList";
 const RestaurantCategory = ({ data, showItem, setShowIndex }) => {
 
     const expandAccordion = () => {
-        setShowIndex();       //lifting state up
+        setShowIndex(prevIndex => (prevIndex === showItem ? null : showItem));       //lifting state up
     }
 
     return <div className="w-6/12 mx-auto my-4 shadow-lg p-4 cursor-pointer ">
